@@ -8,6 +8,7 @@ import { XsswapConfig } from '../../connectors/xsswap/xsswap.config';
 import { GlobianceConfig } from '../../connectors/globiance/globiance.config';
 import { Ethereumish } from '../../services/common-interfaces';
 import { ConfigManagerV2 } from '../../services/config-manager-v2';
+import { convertXdcPublicKey } from '../../helpers';
 
 export class Xdc extends EthereumBase implements Ethereumish {
   private static _instances: { [name: string]: Xdc };
@@ -71,7 +72,7 @@ export class Xdc extends EthereumBase implements Ethereumish {
     } else if (reqSpender === 'globiance') {
         spender = GlobianceConfig.config.routerAddress(this._chain);
     } else {
-      spender = reqSpender;
+      spender = convertXdcPublicKey(reqSpender);
     }
     return spender;
   }
