@@ -30,6 +30,8 @@ import {
 import { EthereumBase } from '../ethereum-base';
 import { Near } from '../../chains/near/near';
 
+import { convertXdcPrivateKey } from '../../helpers';
+
 const walletPath = './conf/wallets';
 export async function mkdirIfDoesNotExist(path: string): Promise<void> {
   const exists = await fse.pathExists(path);
@@ -62,9 +64,7 @@ export async function addWallet(
   } else if (req.chain === 'polygon') {
     connection = Polygon.getInstance(req.network);
   } else if (req.chain === 'xdc') {
-    const xdc = Xdc.getInstance(req.network);
-    address = xdc.getWalletFromPrivateKey(req.privateKey).address;
-    encryptedPrivateKey = await xdc.encrypt(req.privateKey, passphrase);
+    connection = Xdc.getInstance(req.network);
   } else if (req.chain === 'cosmos') {
     connection = Cosmos.getInstance(req.network);
   } else if (req.chain === 'near') {
@@ -99,6 +99,7 @@ export async function addWallet(
         passphrase
       );
     } else if (connection instanceof EthereumBase) {
+      req.privateKey = convertXdcPrivateKey(req.privateKey);
       address = connection.getWalletFromPrivateKey(req.privateKey).address;
       encryptedPrivateKey = await connection.encrypt(
         req.privateKey,
