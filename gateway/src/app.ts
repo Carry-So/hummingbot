@@ -21,6 +21,7 @@ import { AmmRoutes, AmmLiquidityRoutes, PerpAmmRoutes } from './amm/amm.routes';
 import { PangolinConfig } from './connectors/pangolin/pangolin.config';
 import { QuickswapConfig } from './connectors/quickswap/quickswap.config';
 import { XsswapConfig } from './connectors/xsswap/xsswap.config';
+import { GlobianceConfig } from './connectors/globiance/globiance.config';
 import { TraderjoeConfig } from './connectors/traderjoe/traderjoe.config';
 import { UniswapConfig } from './connectors/uniswap/uniswap.config';
 import { OpenoceanConfig } from './connectors/openocean/openocean.config';
@@ -78,6 +79,7 @@ interface ConnectorsResponse {
   pangolin: Array<AvailableNetworks>;
   quickswap: Array<AvailableNetworks>;
   xsswap: Array<AvailableNetworks>;
+  globiance: Array<AvailableNetworks>;
   sushiswap: Array<AvailableNetworks>;
   openocean: Array<AvailableNetworks>;
   traderjoe: Array<AvailableNetworks>;
@@ -93,6 +95,7 @@ gatewayApp.get(
       pangolin: PangolinConfig.config.availableNetworks,
       quickswap: QuickswapConfig.config.availableNetworks,
       xsswap: XsswapConfig.config.availableNetworks,
+      globiance: GlobianceConfig.config.availableNetworks,
       sushiswap: SushiswapConfig.config.availableNetworks,
       openocean: OpenoceanConfig.config.availableNetworks,
       traderjoe: TraderjoeConfig.config.availableNetworks,
