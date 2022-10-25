@@ -5,6 +5,7 @@ import { EthereumBase } from '../../services/ethereum-base';
 import { getEthereumConfig as getXdcConfig } from '../ethereum/ethereum.config';
 import { Provider } from '@ethersproject/abstract-provider';
 import { XsswapConfig } from '../../connectors/xsswap/xsswap.config';
+import { GlobianceConfig } from '../../connectors/globiance/globiance.config';
 import { Ethereumish } from '../../services/common-interfaces';
 import { ConfigManagerV2 } from '../../services/config-manager-v2';
 
@@ -67,6 +68,8 @@ export class Xdc extends EthereumBase implements Ethereumish {
     let spender: string;
     if (reqSpender === 'xsswap') {
         spender = XsswapConfig.config.routerAddress(this._chain);
+    } else if (reqSpender === 'globiance') {
+        spender = GlobianceConfig.config.routerAddress(this._chain);
     } else {
       spender = reqSpender;
     }

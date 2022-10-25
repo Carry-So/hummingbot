@@ -46,6 +46,12 @@ import {
   Fraction as XsswapFraction
 } from 'xsswap-sdk';
 import {
+  Token as TokenGlobiance,
+  CurrencyAmount as CurrencyAmountGlobiance,
+  Trade as TradeGlobiance,
+  Fraction as GlobianceFraction
+} from 'globiance-sdk';
+import {
   Trade as SushiswapTrade,
   Token as SushiToken,
   CurrencyAmount as SushiCurrencyAmount,
@@ -106,6 +112,7 @@ export type Tokenish =
   | UniswapCoreToken
   | TokenQuickswap
   | TokenXsswap
+  | TokenGlobiance
   | TokenTraderjoe
   | UniswapCoreToken
   | SushiToken
@@ -128,6 +135,7 @@ export type UniswapishTrade =
   | UniswapV3Trade<Currency, UniswapCoreToken, TradeType>
   | TradeQuickswap
   | TradeXsswap
+  | TradeGlobiance
   | TradeTraderjoe
   | SushiswapTrade<SushiToken, SushiToken, SushiTradeType>
   | UniswapV3Trade<Currency, UniswapCoreToken, TradeType>
@@ -151,6 +159,7 @@ export type UniswapishAmount =
   | CurrencyAmountPangolin
   | CurrencyAmountQuickswap
   | CurrencyAmountXsswap
+  | CurrencyAmountGlobiance
   | UniswapCoreCurrencyAmount<Currency>
   | CurrencyAmountTraderjoe
   | SushiCurrencyAmount<SushiCurrency | SushiToken>
@@ -164,6 +173,7 @@ export type Fractionish =
   | PangolinFraction
   | QuickswapFraction
   | XsswapFraction
+  | GlobianceFraction
   | TraderjoeFraction
   | SushiFraction
   | DefikingdomsFraction

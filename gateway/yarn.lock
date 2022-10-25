@@ -7644,6 +7644,19 @@ globby@^11.0.3:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
+globiance-sdk@^1.0.0-beta:
+  version "1.0.0-beta"
+  resolved "https://registry.yarnpkg.com/globiance-sdk/-/globiance-sdk-1.0.0-beta.tgz#4ca2f2700c2a55e190852150496e251c8ebdbded"
+  integrity sha512-2BObozQeWjZpW4TePe9PPe1AzAQehgSl8+XVcylJk7zWjtH2FVt+3wcAy8XL/etCNUpg9S0lPa3SeAn2EvkJeA==
+  dependencies:
+    "@uniswap/v2-core" "^1.0.0"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
 golang-cover-parse@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/golang-cover-parse/-/golang-cover-parse-2.0.0.tgz#6bac2e5a88c1fb26468fa8d605aa52b4b8d12119"
